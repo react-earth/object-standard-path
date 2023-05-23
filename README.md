@@ -1,13 +1,13 @@
 ![title](media/repo-header.svg)
 
-## Quick Features 🥳
+# Quick Features 🥳
 
 - Standard path, e.g. `a.b.c[0].d`.
 - Provider types & utils Path, PathValue, objectGet, objectSet.
 - Built with typescript, type protection, code autocompletion, make your app robust.
 - No dependencies, small package size.
 
-## How to use 📖
+# How to use 📖
 
 ### Install package
 
