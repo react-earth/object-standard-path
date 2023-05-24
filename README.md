@@ -12,8 +12,8 @@
 <a href="https://www.npmjs.com/package/object-standard-path" target="\_parent">
   <img alt="downloads" src="https://img.shields.io/npm/dm/object-standard-path.svg" />
 </a>
-<a href="https://github.com/react-earth/react-happy-form" target="\_parent">
-  <img alt="license" src="https://img.shields.io/npm/l/react-happy-form" />
+<a href="https://github.com/react-earth/object-standard-path" target="\_parent">
+  <img alt="license" src="https://img.shields.io/npm/l/object-standard-path" />
 </a>
 
 # Quick Features 🥳
