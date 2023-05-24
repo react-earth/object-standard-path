@@ -20,24 +20,24 @@ npm install object-standard-path
 ```typescript
 import { Path, PathValue } from 'object-standard-path';
 
-type Object = {
+type Test = {
   value: string;
   array: {
     value: string;
   }[];
 };
 
-type ObjectPath = Path<Object>;
+type TestPath = Path<Test>;
 // result: "value" | "array" | `array[${number}]` | `array[${number}].value`
 
-type ObjectPathValue = PathValue<Object, 'array[0]'>;
+type TestPathValue = PathValue<Test, 'array[0]'>;
 // result: { value: string }
 ```
 
-### Use utils: objectGet, objectSet
+### Use utils: pathGet, pathSet
 
 ```typescript
-import { objectGet, objectSet } from 'object-standard-path';
+import { pathGet, pathSet } from 'object-standard-path';
 
 const object = {
   array: [
@@ -47,9 +47,9 @@ const object = {
   ],
 };
 
-const result = objectGet(object, 'array[0].value');
+const result = pathGet(object, 'array[0].value');
 // result: 1
 
-objectSet(object, 'array[0].value', 2);
+pathSet(object, 'array[0].value', 2);
 // result: { array: [{ value: 2 }] }
 ```

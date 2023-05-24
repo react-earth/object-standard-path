@@ -33,7 +33,7 @@ export const getPathItems = (path: string) => {
   return pathItems;
 };
 
-export const objectGet = <T extends object, P extends Path<T>>(
+export const pathGet = <T, P extends Path<T>>(
   object: T,
   path: P,
 ): PathValue<T, P> => {
@@ -45,7 +45,7 @@ export const objectGet = <T extends object, P extends Path<T>>(
   return value;
 };
 
-export const objectSet = <T extends object, P extends Path<T>>(
+export const pathSet = <T, P extends Path<T>>(
   object: T,
   path: P,
   value: PathValue<T, P>,
