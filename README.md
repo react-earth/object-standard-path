@@ -1,5 +1,21 @@
 ![title](media/repo-header.svg)
 
+<a href="https://github.com/react-earth/object-standard-path" target="\_parent">
+  <img alt="star" src="https://img.shields.io/github/stars/react-earth/object-standard-path.svg?style=social&label=Star" />
+</a>
+<a href="https://www.npmjs.com/package/object-standard-path" target="\_parent">
+  <img src="https://img.shields.io/npm/v/object-standard-path" alt="version">
+</a>
+<a href="https://www.npmjs.com/package/object-standard-path" target="\_parent">
+  <img alt="minzip" src="https://img.shields.io/bundlephobia/minzip/object-standard-path" />
+</a>
+<a href="https://www.npmjs.com/package/object-standard-path" target="\_parent">
+  <img alt="downloads" src="https://img.shields.io/npm/dm/object-standard-path.svg" />
+</a>
+<a href="https://github.com/react-earth/react-happy-form" target="\_parent">
+  <img alt="license" src="https://img.shields.io/npm/l/react-happy-form" />
+</a>
+
 # Quick Features 🥳
 
 - Standard path, e.g. `a.b.c[0].d`.
