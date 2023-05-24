@@ -11,13 +11,15 @@
 
 ### Install package
 
-```bash
+```shell
 npm install object-standard-path
 ```
 
 ### Use types: Path, PathValue
 
 ```typescript
+import { Path, PathValue } from 'object-standard-path';
+
 type Object = {
   value: string;
   array: {
@@ -26,21 +28,17 @@ type Object = {
 };
 
 type ObjectPath = Path<Object>;
-/**
- * You will get path type:
- * "value" | "array" | `array[${number}]` | `array[${number}].value`
- */
+// result: "value" | "array" | `array[${number}]` | `array[${number}].value`
 
 type ObjectPathValue = PathValue<Object, 'array[0]'>;
-/**
- * You will get path value type:
- * { value: string }
- */
+// result: { value: string }
 ```
 
 ### Use utils: objectGet, objectSet
 
 ```typescript
+import { objectGet, objectSet } from 'object-standard-path';
+
 const object = {
   array: [
     {
@@ -49,10 +47,9 @@ const object = {
   ],
 };
 
-// Provides type protection
-const result /* number */ = objectGet(
-  object,
-  'array[0].value' /* valid path */,
-);
-objectSet(object, 'array[0].value' /* valid path */, 2 /* number*/);
+const result = objectGet(object, 'array[0].value');
+// result: 1
+
+objectSet(object, 'array[0].value', 2);
+// result: { array: [{ value: 2 }] }
 ```
