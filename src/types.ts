@@ -1,4 +1,16 @@
 type ExcludeEmptyPath<T> = Exclude<T, ''>;
+type AvailableKey = string | number;
+type UnaccessibleObjectType =
+  | Function
+  | Map<any, any>
+  | WeakMap<any, any>
+  | Set<any>
+  | WeakSet<any>
+  | Date
+  | RegExp
+  | Error
+  | Promise<any>
+  | Symbol;
 
 // Path for any
 type AnyPath<T, P extends string> = 0 extends 1 & T ? `${P}${any}` : never;
@@ -10,8 +22,10 @@ type ArrayPath<T, P extends string> = T extends Array<infer V>
 
 // Path for object
 type ObjectPath<T, P extends string> = T extends object
-  ? keyof T extends infer K
-    ? K extends keyof T & string
+  ? T extends UnaccessibleObjectType
+    ? never
+    : keyof T extends infer K
+    ? K extends keyof T & AvailableKey
       ?
           | ExcludeEmptyPath<P>
           | `${Path<T[K], `${P extends '' ? K : `${P}.${K}`}`>}`
@@ -54,7 +68,13 @@ type ArrayPathValue<
   : never;
 
 // Path value for object
-type ObjectPathValueInner<T, K, R extends string = ''> = K extends keyof T
+type ObjectPathValueInner<
+  T,
+  K,
+  R extends string = '',
+> = T extends UnaccessibleObjectType
+  ? any
+  : K extends keyof T
   ? R extends ''
     ? T[K]
     : PathValue<T[K], R>
