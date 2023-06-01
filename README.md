@@ -19,8 +19,8 @@
 # Quick Features 🥳
 
 - Standard path, e.g. `a.b.c[0].d`.
-- Provider types & utils Path, PathValue, objectGet, objectSet.
-- Built with typescript, type protection, code autocompletion, make your app robust.
+- Provider types & utils: Path, PathValue, objectGet, objectSet.
+- Built with typescript, provide type protection, code autocompletion, make your app robust.
 - No dependencies, small package size.
 
 # How to use 📖
@@ -69,3 +69,5 @@ const result = pathGet(object, 'array[0].value');
 pathSet(object, 'array[0].value', 2);
 // result: { array: [{ value: 2 }] }
 ```
+
+Notes: Please don't include the characters `.[]` in the key of the object, as they may affect parsing.
