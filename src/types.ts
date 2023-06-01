@@ -13,7 +13,11 @@ type UnaccessibleObjectType =
   | Symbol;
 
 // Path for any
-type AnyPath<T, P extends string> = 0 extends 1 & T ? `${P}${any}` : never;
+type AnyPath<T, P extends string> = 0 extends 1 & T
+  ? P extends ''
+    ? any
+    : `${P}${any}`
+  : never;
 
 // Path for array
 type ArrayPath<T, P extends string> = T extends Array<infer V>
