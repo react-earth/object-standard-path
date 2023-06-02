@@ -1,6 +1,6 @@
 {
   "name": "object-standard-path",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Safely get/set deep nested properties with standard path, strong type support",
   "repository": {
     "type": "git",
