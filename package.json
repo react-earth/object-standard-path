@@ -1,6 +1,7 @@
 {
   "name": "object-standard-path",
   "version": "0.2.3",
+  "description": "Safely get/set deep nested properties with standard path, strong type support",
   "repository": {
     "type": "git",
     "url": "https://github.com/react-earth/object-standard-path.git"
@@ -40,5 +41,24 @@
     "rollup-plugin-typescript2": "^0.31.2",
     "ts-jest": "^29.0.3",
     "typescript": "^4.8.4"
-  }
+  },
+  "keywords": [
+    "dot",
+    "path",
+    "get",
+    "set",
+    "update",
+    "change",
+    "standard",
+    "value",
+    "deep",
+    "nested",
+    "object",
+    "property",
+    "typescript",
+    "type",
+    "access",
+    "notation",
+    "array"
+  ]
 }
