@@ -19,9 +19,9 @@
 # Quick Features 🥳
 
 - Standard path, e.g. `a.b.c[0].d`.
-- Provider types & utils: Path, PathValue, objectGet, objectSet.
+- Provider types & utils: Path, PathValue, pathGet, pathSet, pathSetImmutable.
 - Built with typescript, provide type protection, code autocompletion, make your app robust.
-- No dependencies, small package size.
+- No dependencies, less than 1kB page size.
 
 # How to use 📖
 
@@ -50,10 +50,10 @@ type TestPathValue = PathValue<Test, 'array[0]'>;
 // result: { value: string }
 ```
 
-### Use utils: pathGet, pathSet
+### Use utils: pathGet, pathSet, pathSetImmutable
 
 ```typescript
-import { pathGet, pathSet } from 'object-standard-path';
+import { pathGet, pathSet, pathSetImmutable } from 'object-standard-path';
 
 const object = {
   array: [
@@ -67,7 +67,10 @@ const result = pathGet(object, 'array[0].value');
 // result: 1
 
 pathSet(object, 'array[0].value', 2);
+// object: { array: [{ value: 2 }] }
+
+const result = pathSetImmutable(object, 'array[0].value', 2);
 // result: { array: [{ value: 2 }] }
 ```
 
-Notes: Please don't include the characters `.[]` in the key of the object, as they may affect parsing.
+**Notes: please don't include the characters `.[]` in the key of the object, as they may affect parsing.**

@@ -1,2 +1,2 @@
-export * from './types';
-export * from './utils';
+export { Path, PathValue } from './types';
+export { pathGet, pathSet, pathSetImmutable } from './utils';

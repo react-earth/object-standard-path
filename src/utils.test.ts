@@ -1,4 +1,4 @@
-import { pathGet, pathSet } from './utils';
+import { pathGet, pathSetImmutable } from './utils';
 
 type TestObjectType = {
   parent: {
@@ -20,8 +20,6 @@ const TEST_OBJECT: TestObjectType = {
   },
 };
 
-const clone = <T>(obj: T) => JSON.parse(JSON.stringify(obj)) as T;
-
 describe('utils', () => {
   it('pathGet should work correctly', () => {
     expect(pathGet(TEST_OBJECT, 'parent.value')).toEqual(1);
@@ -34,24 +32,24 @@ describe('utils', () => {
     );
   });
 
-  it('pathSet should work correctly', () => {
-    const testValue = clone(TEST_OBJECT);
-    pathSet(testValue, 'parent.value', 2);
-    expect(testValue).toMatchObject({ parent: { value: 2 } });
+  it('pathSet/pathSetImmutable should work correctly', () => {
+    expect(pathSetImmutable(TEST_OBJECT, 'parent.value', 2)).toMatchObject({
+      parent: { value: 2 },
+    });
 
-    const testArray = clone(TEST_OBJECT);
-    pathSet(testArray, 'parent.array[1]', 2);
-    expect(testArray).toMatchObject({ parent: { array: [1, 2] } });
+    expect(pathSetImmutable(TEST_OBJECT, 'parent.array[1]', 2)).toMatchObject({
+      parent: { array: [1, 2] },
+    });
 
-    const testAutoCreateObject = clone(TEST_OBJECT);
-    pathSet(testAutoCreateObject, 'parent.autoCreateObject.value', 1);
-    expect(testAutoCreateObject).toMatchObject({
+    expect(
+      pathSetImmutable(TEST_OBJECT, 'parent.autoCreateObject.value', 1),
+    ).toMatchObject({
       parent: { autoCreateObject: { value: 1 } },
     });
 
-    const testAutoCreateArray = clone(TEST_OBJECT);
-    pathSet(testAutoCreateArray, 'parent.autoCreateArray[0].value', 1);
-    expect(testAutoCreateArray).toMatchObject({
+    expect(
+      pathSetImmutable(TEST_OBJECT, 'parent.autoCreateArray[0].value', 1),
+    ).toMatchObject({
       parent: { autoCreateArray: [{ value: 1 }] },
     });
   });
