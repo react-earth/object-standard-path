@@ -1,4 +1,6 @@
-![title](media/repo-header.svg)
+# Object Standard Path
+
+Safely get/set deep nested properties with standard path.
 
 <a href="https://github.com/react-earth/object-standard-path" target="\_parent">
   <img alt="star" src="https://img.shields.io/github/stars/react-earth/object-standard-path.svg?style=social&label=Star" />
@@ -16,14 +18,14 @@
   <img alt="license" src="https://img.shields.io/npm/l/object-standard-path" />
 </a>
 
-# Quick Features 🥳
+## Quick Features 🥳
 
 - Standard path, e.g. `a.b.c[0].d`.
 - Provider types & utils: Path, PathValue, pathGet, pathSet, pathSetImmutable.
 - Built with typescript, provide type protection, code autocompletion, make your app robust.
 - No dependencies, less than 1kB page size.
 
-# How to use 📖
+## How to use 📖
 
 ### Install package
 
