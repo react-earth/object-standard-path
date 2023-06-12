@@ -1,6 +1,4 @@
-# Object Standard Path
-
-Safely get/set deep nested properties with standard path.
+![title](media/repo-header.svg)
 
 <a href="https://github.com/react-earth/object-standard-path" target="\_parent">
   <img alt="star" src="https://img.shields.io/github/stars/react-earth/object-standard-path.svg?style=social&label=Star" />
