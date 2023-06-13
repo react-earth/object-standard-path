@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/npm/v/object-standard-path" alt="version">
 </a>
 <a href="https://www.npmjs.com/package/object-standard-path" target="\_parent">
-  <img alt="minzip" src="https://img.shields.io/bundlephobia/minzip/object-standard-path" />
+  <img alt="minzip" src="https://img.badgesize.io/https:/unpkg.com/object-standard-path@latest/dist/index.esm.js?compression=gzip" />
 </a>
 <a href="https://www.npmjs.com/package/object-standard-path" target="\_parent">
   <img alt="downloads" src="https://img.shields.io/npm/dm/object-standard-path.svg" />
