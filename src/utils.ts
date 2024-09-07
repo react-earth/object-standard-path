@@ -16,16 +16,37 @@ const isObject = (value: any) => typeof value === 'object';
 const isArray = (value: any) => Array.isArray(value);
 
 const deepClone = <T>(source: T): T => {
-  if (source === null || typeof source !== 'object') {
+  if (typeof source !== 'object') {
     return source;
   }
-  const clone: any = Array.isArray(source) ? [] : {};
+  if (source instanceof Date) {
+    return new Date(source.getTime()) as T;
+  }
+  if (source instanceof Map) {
+    const mapClone = new Map();
+    source.forEach((value, key) => {
+      mapClone.set(deepClone(key), deepClone(value));
+    });
+    return mapClone as T;
+  }
+  if (source instanceof Set) {
+    const setClone = new Set();
+    source.forEach((value) => {
+      setClone.add(deepClone(value));
+    });
+    return setClone as T;
+  }
+  if (Array.isArray(source)) {
+    const arrayClone = source.map((item) => deepClone(item));
+    return arrayClone as T;
+  }
+  const objClone: { [key: string]: any } = {};
   for (const key in source) {
-    if (Object.prototype.hasOwnProperty.call(source, key)) {
-      clone[key] = deepClone(source[key]);
+    if (source.hasOwnProperty(key)) {
+      objClone[key] = deepClone(source[key]);
     }
   }
-  return clone as T;
+  return objClone as T;
 };
 
 export const getPathItems = (path: string) => {
